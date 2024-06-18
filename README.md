@@ -5,5 +5,7 @@ The USGS is interested in building a new set of tools that will allow them to vi
 
 In this repository you will find a java script that will fetch (geojson format), the dataset about earthquakes in our world. The map will be centered in Utah, but please feel free to navigate through it and find more information while hoovering on each marker.
 Please, note that each code is commented, as well as showing the source of information / support when applicable.
-I would like to thank Halima Saleh for her support, explaining the topic.
+Becuase the legend colour was not showing up, the CSS file was modified (as recommended by Lindelwe Myeza on our tutoring sesion).
+
+I also would like to thank Halima Saleh for her support, explaining the topic.
 
