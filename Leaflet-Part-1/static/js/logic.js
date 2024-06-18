@@ -18,21 +18,23 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     }).addTo(myMap);
       
 
-  //Add a disctionary to determine each color for marker by depth
+  //Add a dictionary to determine each color for marker by depth
   let depthRanges = [0, 10, 30, 50, 70, 90];
   let colors = ["#00FF00", "green", "yellow", "orange", "red", '#800080'];
 
 // Define legend colors and labels based on earthquake magnitudes Source: Xpert Learning Assistant
-  const legendColors = ['#FF0000', 'green', 'yellow', 'orange', 'red', '#800080'];
-  const legendLabels = ['-10-10', '10-30', '30-50', '50-70', '70-90', '90+']; 
+  const legendColors = ['#00FF00', 'green', 'yellow', 'orange', 'red', '#800080'];
+  const legendLabels = ['-10', '10', '30', '50', '70', '90']; 
 
 //Create the legend on the website
-  let html = '<div id="legend">';
-    html += '<h3>Depth (km)</h3>';
+  // let html = '<div id="legend">';
+    let html = '<h3>Depth (km)</h3>';
     for (let i = 0; i < depthRanges.length; i++) {
-        html += `<div><span class="legend-color" style="background-color: ${colors[i]}"></span>${depthRanges[i]} - ${depthRanges[i + 1] || '+'}</div>`;
+        html += "<i style='background: "+ legendColors[i] +"'></i>" 
+              + legendLabels[i]+(legendLabels[i+1]? "&ndash;"+legendLabels[i+1]+ "<br>": "+");            
+        // html += `<div><span class="legend-color" style="background-color: ${colors[i]}"></span>${depthRanges[i]} - ${depthRanges[i + 1] || '+'}</div>`;
     }
-    html += '</div>';
+    // html += '</div>';
 
 
   // Create a legend control in the map
@@ -69,7 +71,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
 
   // Create a marker for each earthquake
   let marker = L.circleMarker([coords[1], coords[0]], {
-    radius: magnitude * 6,
+    radius: magnitude * 4,
     color: "#000",
     fillColor: fillColor,
     weight: 1,
